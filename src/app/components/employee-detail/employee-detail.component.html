@@ -1,0 +1,33 @@
+<h2 class="border-bottom mb-3 ng-binding pb-2 text-center">Edit Employee</h2>
+<div class="col-sm-8 container" *ngIf="employee">
+  <form role="form" [formGroup]="editForm" novalidate>
+    <div class="form-group row">
+      <label for="name" class="col-sm-2 col-form-label">Name</label>
+      <div class="col-sm-10">
+        <input type="text" formControlName="name" class="form-control" id="name" name="name"
+          placeholder="Enter Name">
+      </div>
+    </div>
+    <div class="form-group row">
+      <fieldset>
+        <legend>Status:</legend>
+        <input type="radio" id="Active" formControlName="status" name="status" [value]=true>
+        <label for="yes">Active</label>
+
+        <input type="radio" id="Inactive"  formControlName="status" name="status" [value]=false>
+        <label for="yes">Inactive</label>
+
+      </fieldset>
+      <!-- <input type="text" class="form-control" id="inputEmail" name="inputEmail" [(ngModel)]="employee.active" placeholder="Enter Email" required> -->
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-3 offset-2">
+        <a href="" (click)="goBack()" class="btn btn-outline btn-lg btn-block w-100">Cancel</a>
+      </div>
+      <div class="col-sm-3">
+        <button type="submit" (click)="updateEmployeeDetail()"
+          class="btn btn-outline btn-lg btn-block w-100">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>

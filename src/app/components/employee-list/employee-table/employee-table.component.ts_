@@ -1,0 +1,17 @@
+import { Component, OnInit, Input, Output, EventEmitter} from "@angular/core";
+import { Employee } from '../../../models/employee.model';
+
+@Component({
+  selector: 'app-employee-table',
+  templateUrl: './employee-table.component.html'
+})
+export class EmployeeTableComponent implements OnInit {
+  @Input() employeeList: Employee[];
+  // @Output() delete = new EventEmitter<Employee>();
+  constructor() {
+  }
+
+  ngOnInit() {
+  }
+
+}

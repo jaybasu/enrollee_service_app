@@ -1,0 +1,55 @@
+// .demo {
+//   margin:4em auto;
+//   width: 70%;
+// }
+
+// .table a.table-link.danger {
+//   color: #e74c3c;
+// }
+
+.card {
+  margin-bottom: 10px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+
+  // div:nth-child(1) {
+  //   border: 1px solid rgba(0,0,0,.25);
+  //   background-color: #fff;
+  //   flex: 1 1 40%;
+  //   text-align: center;
+  //   padding-top: 10px;
+  //   margin-right: 5px;
+
+  //   div {
+  //     background-color: rgba(0,0,0,.125);
+  //     border-top: 1px solid rgba(0,0,0,.25);
+  //   }
+  // }
+  // div:nth-child(1) {
+  //   flex: 1 1 95%;
+  // }
+  // div:nth-child(2) {
+  //   flex: 0 0 5%;
+  // }
+  .enrollee-status{
+    width: 25px;
+    height: 25px;
+    background-color: rgba(255,0,0,.25);
+    border-radius: 50%;
+    position: absolute;
+    right: 5px;
+    &::after {
+      content: '';
+      width: 15px;
+      height: 15px;
+      background-color: rgba(255,0,0, 0.5);
+      border-radius: 50%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
