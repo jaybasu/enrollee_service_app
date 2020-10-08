@@ -2,16 +2,8 @@
 <h2 class="border-bottom text-center">Enrollee List</h2>
 <div class="row">
   <div class="col-sm-6 col-md-4" *ngFor="let employee of allEmployee">
-    <div class="card">
-      <!-- <div>
-        <ng-container *ngIf="employee.active; else employeeInactive">
-          <img src="assets/employee_color.png" width="70">
-        </ng-container>
-        <ng-template #employeeInactive>
-          <img src="assets/employee_grey.png" width="70">
-        </ng-template>
-        <div>{{employee.name}}</div>
-      </div> -->
+    <app-enrollee-card [employee]=allEmployee></app-enrollee-card>
+    <!-- <div class="card">
       <div>
         <strong>{{employee.name}}</strong><br/>
         <strong>Id:</strong> {{employee.id}}<br/>
@@ -26,7 +18,7 @@
           </span>
         </a>
       </div>
-      <div class="enrollee-status"></div>
-    </div>
+      <div class="enrollee-status" [ngClass]="[employee.active? 'enrollee-status__active':'enrollee-status__inactive']"></div>
+    </div> -->
   </div>
 </div>

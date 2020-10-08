@@ -1,0 +1,17 @@
+<div class="card">
+  <div>
+    <strong>{{employee.name}}</strong><br/>
+    <strong>Id:</strong> {{employee.id}}<br/>
+    <strong>Status:</strong> {{employee.active? 'Active' : 'Inactive'}} <br/>
+    <strong>Date of birth:</strong> {{!employee.dateOfBirth? 'Not Available' : employee.dateOfBirth}}
+  </div>
+  <div>
+    <a routerLink="/employee/{{employee.id}}">
+      <span class="fa-stack">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </div>
+  <div class="enrollee-status" [ngClass]="[employee.active? 'enrollee-status__active':'enrollee-status__inactive']"></div>
+</div>

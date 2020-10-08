@@ -1,0 +1,42 @@
+.card {
+  margin-bottom: 10px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+
+  .enrollee-status {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    right: 5px;
+    
+    &::after {
+      content: '';
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &__inactive {
+      background-color: rgba(255, 0, 0, 0.25);
+
+      &::after {
+        background-color: rgba(255, 0, 0, 0.5);
+      }
+    }
+
+    &__active {
+      background-color: rgba(0, 163, 27, 0.25);
+
+      &::after {
+        background-color: rgba(0, 163, 27, 0.5);
+      }
+    }
+  }
+}

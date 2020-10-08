@@ -6,8 +6,7 @@ import { AppComponent } from './app.component';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
-
-import { EmployeeListComponent } from './components/employee-list/employee-list.component';
+import { EnrolleeListModule } from './components/employee-list/enrollee-list.module';
 import { EmployeeDetailComponent } from './components/employee-detail/employee-detail.component';
 import { AppRouterModule } from './app-routing.module';
 import { CustomerReducer } from './store/employee.reducer';
@@ -18,7 +17,6 @@ import { CustomerEffects } from './store/employee.effects';
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeeListComponent,
     EmployeeDetailComponent
     // EmployeeTableComponent
   ],
@@ -28,6 +26,7 @@ import { CustomerEffects } from './store/employee.effects';
     FormsModule,
     AppRouterModule,
     ReactiveFormsModule,
+    EnrolleeListModule,
     StoreModule.forRoot({applicationState: CustomerReducer}),
     EffectsModule.forRoot([CustomerEffects]),
     StoreDevtoolsModule.instrument({
