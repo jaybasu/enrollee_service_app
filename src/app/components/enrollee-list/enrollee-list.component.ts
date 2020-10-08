@@ -11,19 +11,19 @@ import { EmployeeService } from '../../services/enrollee.service'
   styleUrls: ['./enrollee-list.component.scss']
 })
 export class EnrolleeListComponent implements OnInit {
-  allEmployee$:Observable<any>;
-  allEmployee: Enrollee[];
+  allEnrollee$:Observable<any>;
+  allEnrollee: Enrollee[];
 
   constructor(private store: Store<AppState>) {
-    this.allEmployee$ = this.store.select('applicationState');
+    this.allEnrollee$ = this.store.select('applicationState');
   }
 
   ngOnInit() {
-    this.getAllEmployee();
-    this.allEmployee$.subscribe((state:AppState) => this.allEmployee = state.employee);
+    this.getAllEnrollee();
+    this.allEnrollee$.subscribe((state:AppState) => this.allEnrollee = state.employee);
   }
 
-  getAllEmployee() {
+  getAllEnrollee() {
     this.store.dispatch(new EmployeeActions.loadEmployeeListAction());
   }
   // constructor(

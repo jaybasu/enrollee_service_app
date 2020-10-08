@@ -38,8 +38,8 @@ import {
 export class EnrolleeDetailComponent implements OnInit {
   @Output() update = new EventEmitter < Enrollee > ();
 
-  private employeeId: string;
-  public employee: Enrollee;
+  private enrolleeId: string;
+  public enrollee: Enrollee;
 
   editForm = this.fb.group({
     name: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
@@ -55,19 +55,19 @@ export class EnrolleeDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.employeeId = this.route.snapshot.paramMap.get('id');
+    this.enrolleeId = this.route.snapshot.paramMap.get('id');
     this.getCustomer();
   }
   setData() {
     this.editForm.setValue({
-      name: this.employee.name,
-      status: this.employee.active
+      name: this.enrollee.name,
+      status: this.enrollee.active
     });
   }
   getCustomer(): void {
-    this.employeeService.getCustomer(this.employeeId)
+    this.employeeService.getCustomer(this.enrolleeId)
       .subscribe(employeeDetail => {
-        this.employee = employeeDetail;
+        this.enrollee = employeeDetail;
         this.setData();
       });
   }
@@ -78,9 +78,9 @@ export class EnrolleeDetailComponent implements OnInit {
 
   updateEmployeeDetail() {
     if (this.editForm.valid) {
-      this.employee.name = this.editForm.controls['name'].value;
-      this.employee.active = this.editForm.controls['status'].value;
-      this.store.dispatch(new EmployeeActions.updateEmployeeAction(this.employee));
+      this.enrollee.name = this.editForm.controls['name'].value;
+      this.enrollee.active = this.editForm.controls['status'].value;
+      this.store.dispatch(new EmployeeActions.updateEmployeeAction(this.enrollee));
       this.goBack();
     }
   }

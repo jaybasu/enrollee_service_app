@@ -8,7 +8,6 @@ import { Enrollee } from '../../models/enrollee.model';
 })
 export class EnrolleeCardComponent implements OnInit {
   @Input() enrollee: Enrollee[];
-  // @Output() delete = new EventEmitter<Employee>();
   constructor() {
   }
 
