@@ -4,13 +4,13 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../models/app.state';
 import * as EmployeeActions from '../../store/employee.actions';
 import { Observable } from 'rxjs'
-import { EmployeeService } from '../../services/employee.service'
+import { EmployeeService } from '../../services/enrollee.service'
 @Component({
-  selector: 'app-employee-list',
+  selector: 'app-enrollee-list',
   templateUrl: './enrollee-list.component.html',
   styleUrls: ['./enrollee-list.component.scss']
 })
-export class EmployeeListComponent implements OnInit {
+export class EnrolleeListComponent implements OnInit {
   allEmployee$:Observable<any>;
   allEmployee: Enrollee[];
 

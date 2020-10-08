@@ -10,7 +10,7 @@ import {
 
 import {
   EmployeeService
-} from '../../services/employee.service';
+} from '../../services/enrollee.service';
 import {
   Enrollee
 } from '../../models/enrollee.model';
@@ -31,11 +31,11 @@ import {
 } from '@angular/common';
 
 @Component({
-  selector: 'app-employee-detail',
-  templateUrl: './employee-detail.component.html',
-  styleUrls: ['./employee-detail.component.scss']
+  selector: 'app-enrollee-detail',
+  templateUrl: './enrollee-detail.component.html',
+  styleUrls: ['./enrollee-detail.component.scss']
 })
-export class EmployeeDetailComponent implements OnInit {
+export class EnrolleeDetailComponent implements OnInit {
   @Output() update = new EventEmitter < Enrollee > ();
 
   private employeeId: string;

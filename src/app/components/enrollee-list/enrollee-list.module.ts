@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EmployeeListComponent } from './enrollee-list.component';
+import { EnrolleeListComponent } from './enrollee-list.component';
 import { EnrolleeCardComponent } from '../enrollee-card/enrollee-card.component'
 import { RouterModule } from '@angular/router';
 
@@ -8,12 +8,12 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     EnrolleeCardComponent,
-      EmployeeListComponent
+    EnrolleeListComponent
     ],
   imports: [
     CommonModule,
     RouterModule
   ],
-  exports: [EmployeeListComponent, EnrolleeCardComponent]
+  exports: [EnrolleeListComponent, EnrolleeCardComponent]
 })
 export class EnrolleeListModule { }

@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { EmployeeService } from "../services/employee.service";
+import { EmployeeService } from "../services/enrollee.service";
 import { Effect, Actions, ofType } from '@ngrx/effects';
 import { map, mergeMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
