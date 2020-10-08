@@ -11,14 +11,12 @@ import { EnrolleeDetailComponent } from './components/enrollee-detail/enrollee-d
 import { AppRouterModule } from './app-routing.module';
 import { CustomerReducer } from './store/employee.reducer';
 import { CustomerEffects } from './store/employee.effects';
-// import { EmployeeTableComponent } from './components/employee-list/employee-table/employee-table.component.ts_';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     EnrolleeDetailComponent
-    // EmployeeTableComponent
   ],
   imports: [
     BrowserModule,
@@ -28,10 +26,7 @@ import { CustomerEffects } from './store/employee.effects';
     ReactiveFormsModule,
     EnrolleeListModule,
     StoreModule.forRoot({applicationState: CustomerReducer}),
-    EffectsModule.forRoot([CustomerEffects]),
-    StoreDevtoolsModule.instrument({
-      maxAge: 25, // Retains last 25 states
-    })
+    EffectsModule.forRoot([CustomerEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

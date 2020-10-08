@@ -9,7 +9,7 @@ import {
 } from '@angular/router';
 
 import {
-  EmployeeService
+  EnrolleeService
 } from '../../services/enrollee.service';
 import {
   Enrollee
@@ -42,13 +42,13 @@ export class EnrolleeDetailComponent implements OnInit {
   public enrollee: Enrollee;
 
   editForm = this.fb.group({
-    name: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
+    name: ['', [Validators.required, Validators.pattern('[a-zA-Z- ]*')]],
     status: ['', Validators.required]
   });
 
   constructor(
     private route: ActivatedRoute,
-    private employeeService: EmployeeService,
+    private enrolleeService: EnrolleeService,
     private fb: FormBuilder,
     private store: Store < AppState > ,
     private location: Location
@@ -56,7 +56,7 @@ export class EnrolleeDetailComponent implements OnInit {
 
   ngOnInit() {
     this.enrolleeId = this.route.snapshot.paramMap.get('id');
-    this.getCustomer();
+    this.getEnrolleeDetail();
   }
   setData() {
     this.editForm.setValue({
@@ -64,10 +64,10 @@ export class EnrolleeDetailComponent implements OnInit {
       status: this.enrollee.active
     });
   }
-  getCustomer(): void {
-    this.employeeService.getCustomer(this.enrolleeId)
-      .subscribe(employeeDetail => {
-        this.enrollee = employeeDetail;
+  getEnrolleeDetail(): void {
+    this.enrolleeService.getEnrolleeDetail(this.enrolleeId)
+      .subscribe(enrolleeDetail => {
+        this.enrollee = enrolleeDetail;
         this.setData();
       });
   }

@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../models/app.state';
 import * as EmployeeActions from '../../store/employee.actions';
 import { Observable } from 'rxjs'
-import { EmployeeService } from '../../services/enrollee.service'
+import { EnrolleeService } from '../../services/enrollee.service'
 @Component({
   selector: 'app-enrollee-list',
   templateUrl: './enrollee-list.component.html',

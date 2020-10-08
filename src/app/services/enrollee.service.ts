@@ -10,7 +10,7 @@ const httpOptions = {
 }
 
 @Injectable({ providedIn: 'root' })
-export class EmployeeService {
+export class EnrolleeService {
   private baseUrl = 'http://localhost:8080/enrollees'
   constructor(private http: HttpClient) {}
 
@@ -18,11 +18,11 @@ export class EmployeeService {
   /**
    * Get employee list
    */
-  getEmployee(): Observable<Enrollee[]> {
+  getEnrollee(): Observable<Enrollee[]> {
     return this.http.get<Enrollee[]>(this.baseUrl)
       .pipe(
-        tap(listOfEmployee => {return listOfEmployee}),
-        catchError(this.handleError('getEmployee', []))
+        tap(listOfEnrollyee => {return listOfEnrollyee}),
+        catchError(this.handleError('getEnrollee', []))
       );
   }
 
@@ -30,11 +30,11 @@ export class EmployeeService {
   /**
    * Get employee details
    */
-  getCustomer(id: string): Observable<Enrollee> {
+  getEnrolleeDetail(id: string): Observable<Enrollee> {
     const url = `${this.baseUrl}/${id}`;
     return this.http.get<Enrollee>(url)
       .pipe(
-        tap(customer => console.log('fetched employee')),
+        tap(enrollee => {return enrollee}),
         catchError(this.handleError<Enrollee>(`getHero id=${id}`))
       )
   }
@@ -42,12 +42,12 @@ export class EmployeeService {
   /**
    * Update employee details
    */
-  updateCustomer(employee: Enrollee): Observable<any> {
-    const url = `${this.baseUrl}/${employee.id}`;
-    return this.http.put(url, employee, httpOptions)
+  updateEnrolleeDetail(enrollee: Enrollee): Observable<any> {
+    const url = `${this.baseUrl}/${enrollee.id}`;
+    return this.http.put(url, enrollee, httpOptions)
       .pipe(
-        tap(_ => console.log(`updated employee: id=${employee.id}`)),
-        catchError(this.handleError<Enrollee>('updateEmployee'))
+        tap(_ => console.log(`updated employee: id=${enrollee.id}`)),
+        catchError(this.handleError<Enrollee>('updateEnrollee'))
       );
   }
 
