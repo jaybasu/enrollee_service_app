@@ -12,8 +12,8 @@ import {
   EmployeeService
 } from '../../services/employee.service';
 import {
-  Employee
-} from '../../models/employee.model';
+  Enrollee
+} from '../../models/enrollee.model';
 import {
   FormBuilder,
   FormGroup,
@@ -36,10 +36,10 @@ import {
   styleUrls: ['./employee-detail.component.scss']
 })
 export class EmployeeDetailComponent implements OnInit {
-  @Output() update = new EventEmitter < Employee > ();
+  @Output() update = new EventEmitter < Enrollee > ();
 
   private employeeId: string;
-  public employee: Employee;
+  public employee: Enrollee;
 
   editForm = this.fb.group({
     name: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],

@@ -1,4 +1,4 @@
-import { Employee } from "./employee.model";
+import { Enrollee } from "./enrollee.model";
 export interface AppState {
-  readonly employee: Employee[];
+  readonly employee: Enrollee[];
 }

@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Employee, ViewEmployee, EditEmployee } from '../models/employee.model';
+import { Enrollee } from '../models/enrollee.model';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json'})
@@ -18,8 +18,8 @@ export class EmployeeService {
   /**
    * Get employee list
    */
-  getEmployee(): Observable<ViewEmployee[]> {
-    return this.http.get<ViewEmployee[]>(this.baseUrl)
+  getEmployee(): Observable<Enrollee[]> {
+    return this.http.get<Enrollee[]>(this.baseUrl)
       .pipe(
         tap(listOfEmployee => {return listOfEmployee}),
         catchError(this.handleError('getEmployee', []))
@@ -30,24 +30,24 @@ export class EmployeeService {
   /**
    * Get employee details
    */
-  getCustomer(id: string): Observable<Employee> {
+  getCustomer(id: string): Observable<Enrollee> {
     const url = `${this.baseUrl}/${id}`;
-    return this.http.get<Employee>(url)
+    return this.http.get<Enrollee>(url)
       .pipe(
         tap(customer => console.log('fetched employee')),
-        catchError(this.handleError<Employee>(`getHero id=${id}`))
+        catchError(this.handleError<Enrollee>(`getHero id=${id}`))
       )
   }
 
   /**
    * Update employee details
    */
-  updateCustomer(employee: Employee): Observable<any> {
+  updateCustomer(employee: Enrollee): Observable<any> {
     const url = `${this.baseUrl}/${employee.id}`;
     return this.http.put(url, employee, httpOptions)
       .pipe(
         tap(_ => console.log(`updated employee: id=${employee.id}`)),
-        catchError(this.handleError<Employee>('updateEmployee'))
+        catchError(this.handleError<Enrollee>('updateEmployee'))
       );
   }
 

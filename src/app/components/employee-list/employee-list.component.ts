@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { Employee} from '../../models/enrollee.model';
+import { Enrollee} from '../../models/enrollee.model';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../models/app.state';
 import * as EmployeeActions from '../../store/employee.actions';
@@ -12,7 +12,7 @@ import { EmployeeService } from '../../services/employee.service'
 })
 export class EmployeeListComponent implements OnInit {
   allEmployee$:Observable<any>;
-  allEmployee: Employee[];
+  allEmployee: Enrollee[];
 
   constructor(private store: Store<AppState>) {
     this.allEmployee$ = this.store.select('applicationState');
