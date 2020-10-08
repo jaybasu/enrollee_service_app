@@ -76,7 +76,7 @@ export class EnrolleeDetailComponent implements OnInit {
     this.location.back();
   }
 
-  updateEmployeeDetail() {
+  updateEnrolleeDetail() {
     if (this.editForm.valid) {
       this.enrollee.name = this.editForm.controls['name'].value;
       this.enrollee.active = this.editForm.controls['status'].value;

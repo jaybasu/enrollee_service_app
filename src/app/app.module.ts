@@ -10,7 +10,7 @@ import { EnrolleeListModule } from './components/enrollee-list/enrollee-list.mod
 import { EnrolleeDetailComponent } from './components/enrollee-detail/enrollee-detail.component';
 import { AppRouterModule } from './app-routing.module';
 import { CustomerReducer } from './store/employee.reducer';
-import { CustomerEffects } from './store/employee.effects';
+import { EnrolleeEffects } from './store/employee.effects';
 
 
 @NgModule({
@@ -26,7 +26,7 @@ import { CustomerEffects } from './store/employee.effects';
     ReactiveFormsModule,
     EnrolleeListModule,
     StoreModule.forRoot({applicationState: CustomerReducer}),
-    EffectsModule.forRoot([CustomerEffects])
+    EffectsModule.forRoot([EnrolleeEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

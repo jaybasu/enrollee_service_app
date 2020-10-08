@@ -16,7 +16,7 @@ export class EnrolleeService {
 
 
   /**
-   * Get employee list
+   * Get enrollee list
    */
   getEnrollee(): Observable<Enrollee[]> {
     return this.http.get<Enrollee[]>(this.baseUrl)
@@ -28,7 +28,7 @@ export class EnrolleeService {
 
 
   /**
-   * Get employee details
+   * Get enrollee details
    */
   getEnrolleeDetail(id: string): Observable<Enrollee> {
     const url = `${this.baseUrl}/${id}`;
@@ -40,13 +40,13 @@ export class EnrolleeService {
   }
 
   /**
-   * Update employee details
+   * Update enrollee details
    */
   updateEnrolleeDetail(enrollee: Enrollee): Observable<any> {
     const url = `${this.baseUrl}/${enrollee.id}`;
     return this.http.put(url, enrollee, httpOptions)
       .pipe(
-        tap(_ => console.log(`updated employee: id=${enrollee.id}`)),
+        tap(_ => console.log(`updated enrollee: id=${enrollee.id}`)),
         catchError(this.handleError<Enrollee>('updateEnrollee'))
       );
   }

@@ -20,7 +20,7 @@ export class EnrolleeListComponent implements OnInit {
 
   ngOnInit() {
     this.getAllEnrollee();
-    this.allEnrollee$.subscribe((state:AppState) => this.allEnrollee = state.employee);
+    this.allEnrollee$.subscribe((state:AppState) => this.allEnrollee = state.enrollee);
   }
 
   getAllEnrollee() {

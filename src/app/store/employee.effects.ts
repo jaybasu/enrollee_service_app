@@ -11,7 +11,7 @@ import * as employeeActions from './employee.actions';
 @Injectable({
   providedIn: 'root'
 })
-export class CustomerEffects {
+export class EnrolleeEffects {
   constructor(private enrolleeService: EnrolleeService,
     private actions$: Actions
   ) {}
@@ -19,14 +19,14 @@ export class CustomerEffects {
   @Effect() loadEmployee$: Observable<Action> = this.actions$.pipe(
     ofType<employeeActions.loadEmployeeListAction>(types.LOAD_EMPLOYEE_LIST),
     mergeMap(() => this.enrolleeService.getEnrollee().pipe(
-      map(customers => (new employeeActions.loadEmployeeListSuccessAction(customers)))
+      map(enrolleeList => (new employeeActions.loadEmployeeListSuccessAction(enrolleeList)))
     ))
   )
 
   @Effect() updateEmployee$: Observable<Action> = this.actions$.pipe(
     ofType<employeeActions.updateEmployeeAction>(types.UPDATE_EMPLOYEE),
     mergeMap(action => this.enrolleeService.updateEnrolleeDetail(action.payload).pipe(
-      map(customer => (new employeeActions.updateEmployeeActionSuccessAction(customer)))
+      map(updateEnrollee => (new employeeActions.updateEmployeeActionSuccessAction(updateEnrollee)))
     ))
   )
 }
