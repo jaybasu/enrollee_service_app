@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
-import { EnrolleeListModule } from './components/employee-list/enrollee-list.module';
+import { EnrolleeListModule } from './components/enrollee-list/enrollee-list.module';
 import { EmployeeDetailComponent } from './components/employee-detail/employee-detail.component';
 import { AppRouterModule } from './app-routing.module';
 import { CustomerReducer } from './store/employee.reducer';

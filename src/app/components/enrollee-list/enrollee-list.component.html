@@ -1,0 +1,7 @@
+<!-- <app-employee-table [employeeList]="allEmployee" (delete)="deleteCustomer($event)"></app-employee-table> -->
+<h2 class="border-bottom text-center">Enrollee List</h2>
+<div class="row">
+  <div class="col-sm-6 col-md-4" *ngFor="let enrollee of allEmployee">
+    <app-enrollee-card [enrollee]=enrollee></app-enrollee-card>
+  </div>
+</div>

@@ -7,7 +7,7 @@ import { Enrollee } from '../../models/enrollee.model';
   styleUrls: ['./enrollee-card.component.scss']
 })
 export class EnrolleeCardComponent implements OnInit {
-  @Input() employee: Enrollee[];
+  @Input() enrollee: Enrollee[];
   // @Output() delete = new EventEmitter<Employee>();
   constructor() {
   }
