@@ -2,7 +2,8 @@ import {
   Component,
   OnInit,
   Output,
-  EventEmitter
+  EventEmitter,
+  OnDestroy
 } from '@angular/core';
 import {
   ActivatedRoute
@@ -25,18 +26,23 @@ import {
 import {
   AppState
 } from '../../models/app.state';
-import * as EmployeeActions from '../../store/employee.actions';
+// import * as EmployeeActions from '../../store/employee.actions';
 import {
   Location
 } from '@angular/common';
+import {
+  Subscription
+} from 'rxjs';
 
 @Component({
   selector: 'app-enrollee-detail',
   templateUrl: './enrollee-detail.component.html',
   styleUrls: ['./enrollee-detail.component.scss']
 })
-export class EnrolleeDetailComponent implements OnInit {
+export class EnrolleeDetailComponent implements OnInit, OnDestroy {
   @Output() update = new EventEmitter < Enrollee > ();
+
+  private _subscription: Subscription = new Subscription();
 
   private enrolleeId: string;
   public enrollee: Enrollee;
@@ -50,7 +56,7 @@ export class EnrolleeDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private enrolleeService: EnrolleeService,
     private fb: FormBuilder,
-    private store: Store < AppState > ,
+    // private store: Store < AppState > ,
     private location: Location
   ) {}
 
@@ -64,12 +70,12 @@ export class EnrolleeDetailComponent implements OnInit {
       status: this.enrollee.active
     });
   }
-  getEnrolleeDetail(): void {
-    this.enrolleeService.getEnrolleeDetail(this.enrolleeId)
+  getEnrolleeDetail() {
+    this._subscription.add(this.enrolleeService.getEnrolleeDetail(this.enrolleeId)
       .subscribe(enrolleeDetail => {
         this.enrollee = enrolleeDetail;
         this.setData();
-      });
+      }));
   }
 
   goBack() {
@@ -80,9 +86,15 @@ export class EnrolleeDetailComponent implements OnInit {
     if (this.editForm.valid) {
       this.enrollee.name = this.editForm.controls['name'].value;
       this.enrollee.active = this.editForm.controls['status'].value;
-      this.store.dispatch(new EmployeeActions.updateEmployeeAction(this.enrollee));
+      // this.store.dispatch(new EmployeeActions.updateEmployeeAction(this.enrollee));
+      this._subscription.add(this.enrolleeService.updateEnrolleeDetail(this.enrollee)
+        .subscribe((updatedEnrollee) => {
+          return updatedEnrollee;
+        }));
       this.goBack();
     }
   }
-
+  ngOnDestroy(): void {
+    this._subscription.unsubscribe();
+  }
 }
