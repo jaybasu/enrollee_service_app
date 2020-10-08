@@ -2,7 +2,7 @@
 <h2 class="border-bottom text-center">Enrollee List</h2>
 <div class="row">
   <div class="col-sm-6 col-md-4" *ngFor="let employee of allEmployee">
-    <app-enrollee-card [employee]=allEmployee></app-enrollee-card>
+    <app-enrollee-card [employee]=employee></app-enrollee-card>
     <!-- <div class="card">
       <div>
         <strong>{{employee.name}}</strong><br/>
