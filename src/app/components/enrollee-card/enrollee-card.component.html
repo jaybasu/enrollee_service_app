@@ -1,17 +1,15 @@
 <div class="card">
   <div>
-    <strong>{{enrollee.name}}</strong><br/>
-    <strong>Id:</strong> {{enrollee.id}}<br/>
-    <strong>Status:</strong> {{enrollee.active? 'Active' : 'Inactive'}} <br/>
+    <strong>{{enrollee.name}}</strong><br />
+    <strong>Id:</strong> {{enrollee.id}}<br />
+    <strong>Status:</strong> {{enrollee.active? 'Active' : 'Inactive'}} <br />
     <strong>Date of birth:</strong> {{!enrollee.dateOfBirth? 'Not Available' : enrollee.dateOfBirth}}
   </div>
   <div>
     <a routerLink="/enrollee/{{enrollee.id}}">
-      <span class="fa-stack">
-        <i class="fa fa-square fa-stack-2x"></i>
-        <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-      </span>
+      <i class="fa fa-pencil"></i>
     </a>
   </div>
-  <div class="enrollee-status" [ngClass]="[enrollee.active? 'enrollee-status__active':'enrollee-status__inactive']"></div>
+  <div class="enrollee-status" [ngClass]="[enrollee.active? 'enrollee-status__active':'enrollee-status__inactive']">
+  </div>
 </div>

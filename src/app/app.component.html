@@ -1,5 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
 <div class="container demo">
-  <router-outlet></router-outlet>
+  <div class="container-body--Wrapper">
+    <app-header [heading]='pageHeading'></app-header>
+    <div class="container-content--Wrapper">
+      <router-outlet></router-outlet>
+    </div>
+      <app-footer></app-footer>
+  </div>
 </div>
