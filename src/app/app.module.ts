@@ -1,19 +1,40 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import {
+  BrowserModule
+} from '@angular/platform-browser';
+import {
+  NgModule
+} from '@angular/core';
+import {
+  HttpClientModule
+} from '@angular/common/http';
 // import { StoreModule } from '@ngrx/store';
-import { AppComponent } from './app.component';
+import {
+  AppComponent
+} from './app.component';
 // import { EffectsModule } from '@ngrx/effects';
 // import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
-// import { EnrolleeListModule } from './components/enrollee-list/enrollee-list.module.ts_';
-import { EnrolleeDetailComponent } from './components/enrollee-detail/enrollee-detail.component';
-import { AppRouterModule } from './app-routing.module';
-import { LayoutModule } from './components/layout/layout.module';
-import { EnrolleeListComponent } from './components/enrollee-list/enrollee-list.component';
-// import { SearchModule } from './components/search/search.module.ts_';
-import { EnrolleeCardComponent } from './components/enrollee-card/enrollee-card.component';
-import { SearchComponent } from './components/search/search.component';
+import {
+  FormsModule,
+  ReactiveFormsModule
+} from '@angular/forms';
+import {
+  AppRouterModule
+} from './app-routing.module';
+import {
+  LayoutModule
+} from './layout/layout.module';
+import {
+  SharedComponentModule
+} from './shared-component/shared-component.module';
+import {
+  EnrolleeDetailsModule
+} from './pages/enrollee-detail/enrollee-detail.module';
+import {
+  SearchModule
+} from './pages/search/search.module';
+import {
+  EnrolleeListModule
+} from './pages/enrollee-list/enrollee-list.module';
 
 // import { CustomerReducer } from './store/employee.reducer';
 // import { EnrolleeEffects } from './store/employee.effects';
@@ -21,11 +42,7 @@ import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    EnrolleeDetailComponent,
-    EnrolleeListComponent,
-    EnrolleeCardComponent,
-    SearchComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -33,13 +50,15 @@ import { SearchComponent } from './components/search/search.component';
     FormsModule,
     AppRouterModule,
     ReactiveFormsModule,
-    // EnrolleeListModule,
+    SharedComponentModule,
+    EnrolleeListModule,
+    EnrolleeDetailsModule,
+    SearchModule,
     LayoutModule
-    // SearchModule
     // StoreModule.forRoot({applicationState: CustomerReducer}),
     // EffectsModule.forRoot([EnrolleeEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

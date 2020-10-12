@@ -8,13 +8,13 @@ import {
 } from '@angular/router';
 import {
   EnrolleeListComponent
-} from './components/enrollee-list/enrollee-list.component';
+} from './pages/enrollee-list/enrollee-list.component';
 import {
   EnrolleeDetailComponent
-} from './components/enrollee-detail/enrollee-detail.component';
+} from './pages/enrollee-detail/enrollee-detail.component';
 import {
   SearchComponent
-} from './components/search/search.component';
+} from './pages/search/search.component';
 
 const routes: Routes = [{
     path: '',

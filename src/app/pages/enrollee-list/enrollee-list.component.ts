@@ -16,7 +16,8 @@ import {
 } from 'rxjs'
 import {
   EnrolleeService
-} from '../../services/enrollee.service'
+} from '../../services/enrollee.service';
+
 @Component({
   selector: 'app-enrollee-list',
   templateUrl: './enrollee-list.component.html',
