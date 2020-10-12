@@ -3,8 +3,15 @@
     <h1>{{heading}}</h1>
   </div>
   <nav>
-    <a routerLink="/search">
-          <i class="fa fa-search"></i>
+    <ng-container *ngIf="router.url !== '/enrollee-list'; else searchRoute">
+      <a routerLink="/enrollee-list">
+        <i class="fa fa-home"></i>
       </a>
+    </ng-container>
+    <ng-template #searchRoute>
+      <a routerLink="/search">
+        <i class="fa fa-search"></i>
+      </a>
+    </ng-template>
   </nav>
 </header>

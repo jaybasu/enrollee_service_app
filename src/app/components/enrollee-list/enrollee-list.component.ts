@@ -24,7 +24,7 @@ import {
 })
 export class EnrolleeListComponent implements OnInit, OnDestroy {
   private _subscription: Subscription;
-  allEnrollee$: Observable < any > ;
+  // allEnrollee$: Observable < any > ;
   allEnrollee: Enrollee[];
 
   // constructor(private store: Store<AppState>) {

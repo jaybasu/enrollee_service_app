@@ -1,0 +1,18 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import { SearchComponent } from './search.component';
+import { EnrolleeCardComponent } from '../enrollee-card/enrollee-card.component';
+
+
+
+@NgModule({
+  declarations: [SearchComponent, EnrolleeCardComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  exports: [SearchComponent, EnrolleeCardComponent]
+})
+export class SearchModule { }
