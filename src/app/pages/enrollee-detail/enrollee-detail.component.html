@@ -1,27 +1,30 @@
 <div class="row" *ngIf="enrollee">
   <div class="col-sm-12">
     <form role="form" [formGroup]="editForm" novalidate>
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" formControlName="name" class="form-control" id="name" name="name" placeholder="Enter Name">
+      <div class="container-input--wrapper">
+        <label for="name">Name*</label>
+        <input type="text" formControlName="name" id="name" name="name" placeholder="Enter Name">
+        <app-form-inline-error [errorControlName]="editForm.controls?.name" [messageConfig]="formErrors?.name"
+          [isSubmitted]="isFormSubmitted"></app-form-inline-error>
       </div>
       <div class="form-group">
         <fieldset>
+          <div class="container-input--wrapper__horizintal">
           <legend>Status:</legend>
           <input type="radio" id="Active" formControlName="status" name="status" [value]=true>
           <label for="yes">Active</label>
-
           <input type="radio" id="Inactive" formControlName="status" name="status" [value]=false>
           <label for="yes">Inactive</label>
+        </div>
         </fieldset>
       </div>
       <div class="form-group row">
-        <div class="col-sm-3 offset-2">
-          <a href="" (click)="goBack()" class="btn btn-outline btn-lg btn-block w-100">Cancel</a>
+        <div class="col-sm-3 offset-3">
+          <button (click)="goBack()" class="btn btn-outline-secondary">Cancel</button>
         </div>
         <div class="col-sm-3">
           <button type="submit" (click)="updateEnrolleeDetail()"
-            class="btn btn-outline btn-lg btn-block w-100">Submit</button>
+            class="btn btn-primary">Submit</button>
         </div>
       </div>
     </form>

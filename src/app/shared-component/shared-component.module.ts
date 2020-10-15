@@ -3,15 +3,18 @@ import { CommonModule } from '@angular/common';
 import { PaginationComponent } from './pagination/pagination.component';
 import { EnrolleeCardComponent } from './enrollee-card/enrollee-card.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { FormInlineErrorComponent } from './form-inline-error/form-inline-error.component';
 
 
 
 @NgModule({
-  declarations: [PaginationComponent, EnrolleeCardComponent],
+  declarations: [PaginationComponent, EnrolleeCardComponent, FormInlineErrorComponent],
   imports: [
     CommonModule,
-    RouterModule 
+    RouterModule,
+    FormsModule 
   ],
-  exports: [PaginationComponent, EnrolleeCardComponent]
+  exports: [PaginationComponent, EnrolleeCardComponent, FormInlineErrorComponent]
 })
 export class SharedComponentModule { }

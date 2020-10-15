@@ -27,6 +27,7 @@ import {
   AppState
 } from '../../models/app.state';
 // import * as EmployeeActions from '../../store/employee.actions';
+import { formErrors } from '../../constants/form-error.constants'
 import {
   Location
 } from '@angular/common';
@@ -41,6 +42,8 @@ import {
 })
 export class EnrolleeDetailComponent implements OnInit, OnDestroy {
   @Output() update = new EventEmitter < Enrollee > ();
+  formErrors = formErrors;
+  isFormSubmitted = false;
 
   private _subscription: Subscription = new Subscription();
 
@@ -83,6 +86,7 @@ export class EnrolleeDetailComponent implements OnInit, OnDestroy {
   }
 
   updateEnrolleeDetail() {
+    this.isFormSubmitted = true;
     if (this.editForm.valid) {
       this.enrollee.name = this.editForm.controls['name'].value;
       this.enrollee.active = this.editForm.controls['status'].value;

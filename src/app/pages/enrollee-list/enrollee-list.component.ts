@@ -2,7 +2,8 @@ import {
   Component,
   OnInit,
   ChangeDetectionStrategy,
-  OnDestroy, Output
+  OnDestroy,
+  Output, Input
 } from '@angular/core';
 import {
   Enrollee
@@ -11,12 +12,16 @@ import {
 // import { AppState } from '../../models/app.state';
 // import * as EmployeeActions from '../../store/employee.actions';
 import {
+  from,
   Observable,
   Subscription
 } from 'rxjs'
 import {
   EnrolleeService
 } from '../../services/enrollee.service';
+import {
+  MyPagination
+} from '../../models/pagination.model'
 
 @Component({
   selector: 'app-enrollee-list',
@@ -27,6 +32,7 @@ export class EnrolleeListComponent implements OnInit, OnDestroy {
   private _subscription: Subscription;
   // allEnrollee$: Observable < any > ;
   allEnrollee: Enrollee[];
+
 
   // constructor(private store: Store<AppState>) {
   //   this.allEnrollee$ = this.store.select('applicationState');

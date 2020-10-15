@@ -1,0 +1,64 @@
+input[type="radio"] {
+  width: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  margin: 0 5px 0 0;
+}
+
+fieldset {
+  padding: 0;
+}
+
+.container {
+  &-input--wrapper {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    label {
+      margin: 0 10px 0 0;
+
+      &::after {
+        content: ':';
+      }
+    }
+
+    input {
+      width: 50%;
+      padding: 5px 5px;
+      font-weight: 400;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid #ced4da;
+      border-radius: 2px;
+      transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+      margin-right: 10px;
+    }
+
+    &__horizintal {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      legend {
+        display: inherit;
+        width: auto;
+        max-width: 100%;
+        padding: 0;
+        margin-bottom: 0;
+        font-size: inherit;
+        line-height: inherit;
+        color: inherit;
+        white-space: normal;
+        margin-right: 15px;
+      }
+
+      label {
+        display: inherit;
+        margin: 0 10px 0 0;
+      }
+    }
+  }
+}

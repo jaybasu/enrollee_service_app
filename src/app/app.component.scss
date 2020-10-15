@@ -18,6 +18,21 @@ body {
 //     overflow-y: auto;
 //   }
 // }
-.container-content--Wrapper {
+.container {
+  &-content--Wrapper {
     margin: 10px 0;
+  }
+
+  &-input--wrapper {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+     label {
+       margin-right: 5px;
+       &::after {
+         content: ':';
+       }
+     }
+  }
 }
