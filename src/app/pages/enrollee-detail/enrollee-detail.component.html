@@ -1,6 +1,6 @@
 <div class="row" *ngIf="enrollee">
   <div class="col-sm-12">
-    <form role="form" [formGroup]="editForm" novalidate>
+    <form class="card" role="form" [formGroup]="editForm" novalidate>
       <div class="container-input--wrapper">
         <label for="name">Name*</label>
         <input type="text" formControlName="name" id="name" name="name" placeholder="Enter Name">
@@ -10,12 +10,12 @@
       <div class="form-group">
         <fieldset>
           <div class="container-input--wrapper__horizintal">
-          <legend>Status:</legend>
-          <input type="radio" id="Active" formControlName="status" name="status" [value]=true>
-          <label for="yes">Active</label>
-          <input type="radio" id="Inactive" formControlName="status" name="status" [value]=false>
-          <label for="yes">Inactive</label>
-        </div>
+            <legend>Status:</legend>
+            <input type="radio" id="Active" formControlName="status" name="status" [value]=true>
+            <label for="yes">Active</label>
+            <input type="radio" id="Inactive" formControlName="status" name="status" [value]=false>
+            <label for="yes">Inactive</label>
+          </div>
         </fieldset>
       </div>
       <div class="form-group row">
@@ -23,8 +23,7 @@
           <button (click)="goBack()" class="btn btn-outline-secondary">Cancel</button>
         </div>
         <div class="col-sm-3">
-          <button type="submit" (click)="updateEnrolleeDetail()"
-            class="btn btn-primary">Submit</button>
+          <button type="submit" (click)="updateEnrolleeDetail()" class="btn btn-primary">Submit</button>
         </div>
       </div>
     </form>

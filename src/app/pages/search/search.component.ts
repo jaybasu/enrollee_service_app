@@ -62,11 +62,11 @@ export class SearchComponent implements OnInit, OnDestroy {
   getEnrolleeDetail() {
     if (this.searchForm.valid) {
       this.enrolleeId = this.searchForm.controls['search'].value;
-      this._subscription = this.enrolleeService.getEnrolleeDetail(this.enrolleeId)
-        .subscribe(enrolleeDetail => {
-          this.enrollee = enrolleeDetail;
-          console.log(this.enrollee);
-        });
+      this.enrolleeService.getEnrolleeDetail(this.enrolleeId);
+        // .subscribe(enrolleeDetail => {
+        //   this.enrollee = enrolleeDetail;
+        //   console.log(this.enrollee);
+        // });
     }
   }
 

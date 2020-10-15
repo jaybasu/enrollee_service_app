@@ -9,9 +9,14 @@
       </a>
     </ng-container>
     <ng-template #searchRoute>
-      <a routerLink="/search">
+      <!-- <a routerLink="/search">
         <i class="fa fa-search"></i>
-      </a>
+      </a> -->
+      <form role="form" class="container-search" [formGroup]="searchForm" novalidate>
+          <label for="name" class="visually-hidden">Search enrollee by ID</label>
+          <input type="text" formControlName="search" class="form-control" id="search" name="search" placeholder="Search enrollee by ID">
+          <button type="submit" (click)="getEnrolleeDetail()"><span class="visually-hidden">Submit</span><i class="fa fa-search"></i></button>
+      </form>
     </ng-template>
   </nav>
 </header>

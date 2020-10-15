@@ -1,0 +1,55 @@
+html {
+  height: 100%;
+}
+html body {
+  height: 100%;
+  overflow: hidden;
+  height: 100%;
+}
+
+* {
+  font-size: 14px;
+  color: rgb(0, 65, 132);
+}
+
+.row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+input {
+  width: 50%;
+  padding: 5px 5px;
+  font-weight: 400;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 2px;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  margin-right: 10px;
+}
+
+input[type="radio"] {
+  width: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  margin: 0 5px 0 0;
+}
+
+label {
+  margin: 0 10px 0 0;
+
+  &::after {
+    content: ':';
+  }
+}
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

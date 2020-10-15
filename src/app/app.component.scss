@@ -1,26 +1,15 @@
-*,
-html,
-body {
-  height: 100%;
-  font-size: 14px;
-  color: rgba(28, 34, 50, 0.75);
-}
-
-// .container {
-//   &-body--Wrapper {
-//     height: 100%;
-//     display: flex;
-//     flex-direction: column;
-//   }
-
-//   &-content--Wrapper {
-//     flex: 1;
-//     overflow-y: auto;
-//   }
-// }
 .container {
+  &-body--Wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
   &-content--Wrapper {
-    margin: 10px 0;
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 0;
+    background-color: rgb(240, 246, 248);
   }
 
   &-input--wrapper {
@@ -28,11 +17,13 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-     label {
-       margin-right: 5px;
-       &::after {
-         content: ':';
-       }
-     }
+
+    label {
+      margin-right: 5px;
+
+      &::after {
+        content: ':';
+      }
+    }
   }
 }
