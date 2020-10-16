@@ -18,7 +18,7 @@ import {
 import {
   FormBuilder,
   Validators
-} from "@angular/forms";
+} from '@angular/forms';
 // import {
 //   Store
 // } from '@ngrx/store';
@@ -41,7 +41,7 @@ import {
 export class SearchComponent implements OnInit, OnDestroy {
   // @Output() update = new EventEmitter < Enrollee > ();
 
-  private _subscription: Subscription = new Subscription();
+  private subscription: Subscription = new Subscription();
 
   private enrolleeId: string;
   public enrollee: Enrollee;
@@ -61,12 +61,12 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   getEnrolleeDetail() {
     if (this.searchForm.valid) {
-      this.enrolleeId = this.searchForm.controls['search'].value;
-      this.enrolleeService.getEnrolleeDetail(this.enrolleeId);
-        // .subscribe(enrolleeDetail => {
-        //   this.enrollee = enrolleeDetail;
-        //   console.log(this.enrollee);
-        // });
+      this.enrolleeId = this.searchForm.controls.search.value;
+      this.subscription = this.enrolleeService.getEnrolleeDetail(this.enrolleeId)
+        .subscribe(enrolleeDetail => {
+          this.enrollee = enrolleeDetail;
+          console.log(this.enrollee);
+        });
     }
   }
 
@@ -74,7 +74,7 @@ export class SearchComponent implements OnInit, OnDestroy {
     this.location.back();
   }
   ngOnDestroy(): void {
-    this._subscription.unsubscribe();
+    this.subscription.unsubscribe();
   }
 
 }

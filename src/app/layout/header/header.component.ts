@@ -28,7 +28,7 @@ import {
 export class HeaderComponent implements OnDestroy {
   @Input() heading = '';
 
-  private _subscription: Subscription = new Subscription();
+  private subscription: Subscription = new Subscription();
 
   private enrolleeId: string;
   public enrollee: Enrollee;
@@ -44,16 +44,16 @@ export class HeaderComponent implements OnDestroy {
 
   getEnrolleeDetail() {
     if (this.searchForm.valid) {
-      this.enrolleeId = this.searchForm.controls['search'].value;
+      this.enrolleeId = this.searchForm.controls.search.value;
       this.enrolleeService.getEnrolleeDetail(this.enrolleeId)
-        // .subscribe(enrolleeDetail => {
-        //   this.enrollee = enrolleeDetail;
-        //   console.log(this.enrollee);
-        // });
+        .subscribe(enrolleeDetail => {
+          this.enrollee = enrolleeDetail;
+          console.log(this.enrollee);
+        });
     }
   }
 
   ngOnDestroy(): void {
-    this._subscription.unsubscribe();
+    this.subscription.unsubscribe();
   }
 }

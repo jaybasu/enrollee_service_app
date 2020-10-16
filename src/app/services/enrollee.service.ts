@@ -21,7 +21,7 @@ export class EnrolleeService {
   getEnrollee(): Observable<Enrollee[]> {
     return this.http.get<Enrollee[]>(this.baseUrl)
       .pipe(
-        tap(listOfEnrollyee => {return listOfEnrollyee}),
+        tap(listOfEnrollyee => { return listOfEnrollyee; }),
         catchError(this.handleError('getEnrollee', []))
       );
   }
@@ -34,8 +34,8 @@ export class EnrolleeService {
     const url = `${this.baseUrl}/${id}`;
     return this.http.get<Enrollee>(url)
       .pipe(
-        tap(enrollee => {return enrollee}),
-        catchError(this.handleError<Enrollee>(`getHero id=${id}`))
+        tap(enrollee => { return enrollee; }),
+        catchError(this.handleError<Enrollee>(`getEnrollee id=${id}`))
       );
   }
 
@@ -57,7 +57,7 @@ export class EnrolleeService {
    * @param operation - name of the operation that failed
    * @param result - optional value to return as the observable result
    */
-  private handleError<T> (operation = 'operation', result?: T) {
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure

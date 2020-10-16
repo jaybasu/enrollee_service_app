@@ -1,6 +1,5 @@
 import {
   Component,
-  OnInit,
   Input,
   Output,
   EventEmitter
@@ -8,20 +7,18 @@ import {
 
 import {
   MyPagination
-} from '../../models/pagination.model'
+} from '../../models/pagination.model';
 
 @Component({
   selector: 'app-pagination',
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.scss']
 })
-export class PaginationComponent implements OnInit {
+export class PaginationComponent {
+  public pagesArray: Array < number > = [];
+  public currentPage = 1;
 
   constructor() {}
-
-  ngOnInit() {}
-  public pagesArray: Array < number > = [];
-  public currentPage: number = 1;
 
   @Input() set setPagination(pagination: MyPagination) {
     if (pagination) {
@@ -33,9 +30,10 @@ export class PaginationComponent implements OnInit {
   }
   @Output() goToPage = new EventEmitter < number > ();
   public setPage(pageNumber: number): void {
-    if (pageNumber === this.currentPage)
+    if (pageNumber !== this.currentPage) {
+      this.currentPage = pageNumber;
+      this.goToPage.emit(pageNumber);
       return;
-    this.currentPage = pageNumber;
-    this.goToPage.emit(pageNumber);
+    }
   }
 }

@@ -45,7 +45,7 @@ export class EnrolleeDetailComponent implements OnInit, OnDestroy {
   formErrors = formErrors;
   isFormSubmitted = false;
 
-  private _subscription: Subscription = new Subscription();
+  private subscription: Subscription = new Subscription();
 
   private enrolleeId: string;
   public enrollee: Enrollee;
@@ -74,7 +74,7 @@ export class EnrolleeDetailComponent implements OnInit, OnDestroy {
     });
   }
   getEnrolleeDetail() {
-    this._subscription.add(this.enrolleeService.getEnrolleeDetail(this.enrolleeId)
+    this.subscription.add(this.enrolleeService.getEnrolleeDetail(this.enrolleeId)
       .subscribe(enrolleeDetail => {
         this.enrollee = enrolleeDetail;
         this.setData();
@@ -88,10 +88,10 @@ export class EnrolleeDetailComponent implements OnInit, OnDestroy {
   updateEnrolleeDetail() {
     this.isFormSubmitted = true;
     if (this.editForm.valid) {
-      this.enrollee.name = this.editForm.controls['name'].value;
-      this.enrollee.active = this.editForm.controls['status'].value;
+      this.enrollee.name = this.editForm.controls.name.value;
+      this.enrollee.active = this.editForm.controls.status.value;
       // this.store.dispatch(new EmployeeActions.updateEmployeeAction(this.enrollee));
-      this._subscription.add(this.enrolleeService.updateEnrolleeDetail(this.enrollee)
+      this.subscription.add(this.enrolleeService.updateEnrolleeDetail(this.enrollee)
         .subscribe((updatedEnrollee) => {
           return updatedEnrollee;
         }));
@@ -99,6 +99,6 @@ export class EnrolleeDetailComponent implements OnInit, OnDestroy {
     }
   }
   ngOnDestroy(): void {
-    this._subscription.unsubscribe();
+    this.subscription.unsubscribe();
   }
 }

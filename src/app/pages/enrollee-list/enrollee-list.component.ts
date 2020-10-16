@@ -22,7 +22,7 @@ import {
 } from '../../services/enrollee.service';
 import {
   MyPagination
-} from '../../models/pagination.model'
+} from '../../models/pagination.model';
 
 @Component({
   selector: 'app-enrollee-list',
@@ -30,7 +30,7 @@ import {
   styleUrls: ['./enrollee-list.component.scss']
 })
 export class EnrolleeListComponent implements OnInit, OnDestroy {
-  private _subscription: Subscription;
+  private subscription: Subscription;
   // allEnrollee$: Observable < any > ;
   allEnrollee: Enrollee[];
 
@@ -49,9 +49,9 @@ export class EnrolleeListComponent implements OnInit, OnDestroy {
   // }
   constructor(
     private enrolleeService: EnrolleeService) {}
-  currentPageNumber = 1;
-  currentPageSize = 10;
-  currentEnrollee;
+    currentPageNumber = 1;
+    currentPageSize = 10;
+    currentEnrollee;
 
   ngOnInit() {
     this.getAllEnrollee();
@@ -65,7 +65,7 @@ export class EnrolleeListComponent implements OnInit, OnDestroy {
   }
 
   getAllEnrollee() {
-    this._subscription = this.enrolleeService.getEnrollee()
+    this.subscription = this.enrolleeService.getEnrollee()
       .subscribe(allEnrolleeData => {
         this.allEnrollee = allEnrolleeData;
         this.currentEnrollee = this.allEnrollee.slice(
@@ -74,6 +74,6 @@ export class EnrolleeListComponent implements OnInit, OnDestroy {
       });
   }
   ngOnDestroy(): void {
-    this._subscription.unsubscribe();
+    this.subscription.unsubscribe();
   }
 }
