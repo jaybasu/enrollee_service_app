@@ -19,7 +19,7 @@ import {
   FormBuilder,
   FormGroup,
   Validators
-} from "@angular/forms";
+} from '@angular/forms';
 import {
   Store
 } from '@ngrx/store';
@@ -27,7 +27,7 @@ import {
   AppState
 } from '../../models/app.state';
 // import * as EmployeeActions from '../../store/employee.actions';
-import { formErrors } from '../../constants/form-error.constants'
+import { formErrors } from '../../constants/form-error.constants';
 import {
   Location
 } from '@angular/common';

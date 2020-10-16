@@ -4,7 +4,7 @@ import {
   Input,
   Output,
   EventEmitter
-} from "@angular/core";
+} from '@angular/core';
 
 import {
   MyPagination

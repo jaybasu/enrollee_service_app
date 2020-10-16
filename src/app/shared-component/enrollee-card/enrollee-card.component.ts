@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter} from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { Enrollee } from '../../models/enrollee.model';
 
 @Component({

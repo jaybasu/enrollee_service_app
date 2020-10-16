@@ -1,6 +1,6 @@
 <div *ngIf="isSerachDisplay">Test</div>
-<div class="row" *ngIf="allEnrollee">
-  <div class="col-sm-6 col-md-4" *ngFor="let enrollee of allEnrollee">
+<div class="row" *ngIf="currentEnrollee && allEnrollee">
+  <div class="col-sm-6 col-md-4" *ngFor="let enrollee of currentEnrollee">
     <app-enrollee-card [enrollee]=enrollee></app-enrollee-card>
   </div>
   <!-- <app-pagination [setPagination]="{
@@ -9,6 +9,6 @@
   }" (goToPage)="goToPage($event)"></app-pagination> -->
   <app-pagination [setPagination]="{
     'itemsCount': allEnrollee.length,
-    'pageSize': 10
+    'pageSize': currentPageSize
   }" (goToPage)="goToPage($event)"></app-pagination>
 </div>

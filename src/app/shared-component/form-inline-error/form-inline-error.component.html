@@ -1,4 +1,4 @@
 <div *ngIf="isSubmitted && errorControlName?.errors" class="text-error">
-  <span *ngIf="errorControlName?.errors?.required">{{messageConfig?.required}}</span>
-  <span *ngIf="errorControlName?.errors?.pattern">{{messageConfig?.pattern}}</span>
+  <ng-container *ngIf="errorControlName?.errors?.required">{{messageConfig?.required}}</ng-container>
+  <ng-container *ngIf="errorControlName?.errors?.pattern">{{messageConfig?.pattern}}</ng-container>
 </div>

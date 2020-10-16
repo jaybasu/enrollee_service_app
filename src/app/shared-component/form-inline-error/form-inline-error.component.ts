@@ -18,7 +18,7 @@ export class FormInlineErrorComponent {
   @Input() messageConfig: {
     required: string;
     pattern: string;
-  }
+  };
 
   // constructor() { }
 

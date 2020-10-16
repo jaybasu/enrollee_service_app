@@ -26,7 +26,7 @@ import {
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnDestroy {
-  @Input() heading: string = "";
+  @Input() heading = '';
 
   private _subscription: Subscription = new Subscription();
 
@@ -45,11 +45,11 @@ export class HeaderComponent implements OnDestroy {
   getEnrolleeDetail() {
     if (this.searchForm.valid) {
       this.enrolleeId = this.searchForm.controls['search'].value;
-      this._subscription = this.enrolleeService.getEnrolleeDetail(this.enrolleeId)
-        .subscribe(enrolleeDetail => {
-          this.enrollee = enrolleeDetail;
-          console.log(this.enrollee);
-        });
+      this.enrolleeService.getEnrolleeDetail(this.enrolleeId)
+        // .subscribe(enrolleeDetail => {
+        //   this.enrollee = enrolleeDetail;
+        //   console.log(this.enrollee);
+        // });
     }
   }
 

@@ -13,7 +13,7 @@ import { FormInlineErrorComponent } from './form-inline-error/form-inline-error.
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule 
+    FormsModule
   ],
   exports: [PaginationComponent, EnrolleeCardComponent, FormInlineErrorComponent]
 })

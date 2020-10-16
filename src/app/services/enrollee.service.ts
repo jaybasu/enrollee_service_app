@@ -1,5 +1,5 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -7,11 +7,11 @@ import { Enrollee } from '../models/enrollee.model';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json'})
-}
+};
 
 @Injectable({ providedIn: 'root' })
 export class EnrolleeService {
-  private baseUrl = 'http://localhost:8080/enrollees'
+  private baseUrl = 'http://localhost:8080/enrollees';
   constructor(private http: HttpClient) {}
 
 
@@ -36,7 +36,7 @@ export class EnrolleeService {
       .pipe(
         tap(enrollee => {return enrollee}),
         catchError(this.handleError<Enrollee>(`getHero id=${id}`))
-      )
+      );
   }
 
   /**

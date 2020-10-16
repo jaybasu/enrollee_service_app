@@ -3,7 +3,8 @@ import {
   OnInit,
   ChangeDetectionStrategy,
   OnDestroy,
-  Output, Input
+  Output,
+  Input
 } from '@angular/core';
 import {
   Enrollee
@@ -15,7 +16,7 @@ import {
   from,
   Observable,
   Subscription
-} from 'rxjs'
+} from 'rxjs';
 import {
   EnrolleeService
 } from '../../services/enrollee.service';
@@ -48,15 +49,28 @@ export class EnrolleeListComponent implements OnInit, OnDestroy {
   // }
   constructor(
     private enrolleeService: EnrolleeService) {}
+  currentPageNumber = 1;
+  currentPageSize = 10;
+  currentEnrollee;
 
   ngOnInit() {
     this.getAllEnrollee();
+  }
+
+  goToPage(pageNumber) {
+    this.currentPageNumber = pageNumber;
+    this.currentEnrollee = this.allEnrollee.slice(
+      (this.currentPageNumber - 1) * this.currentPageSize, (this.currentPageNumber - 1) * this.currentPageSize + this.currentPageSize
+    );
   }
 
   getAllEnrollee() {
     this._subscription = this.enrolleeService.getEnrollee()
       .subscribe(allEnrolleeData => {
         this.allEnrollee = allEnrolleeData;
+        this.currentEnrollee = this.allEnrollee.slice(
+          (this.currentPageNumber - 1) * this.currentPageSize, (this.currentPageNumber - 1) * this.currentPageSize + this.currentPageSize
+        );
       });
   }
   ngOnDestroy(): void {
