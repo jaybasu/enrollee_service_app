@@ -5,5 +5,6 @@ export const formErrors = {
   },
   search: {
     required: 'Field cannot be empty.',
+    pattern: 'Please enter correct Enrollee ID'
   }
 };

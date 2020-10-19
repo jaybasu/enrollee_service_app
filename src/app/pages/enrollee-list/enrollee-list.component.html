@@ -7,8 +7,12 @@
     <form role="form" class="container-search col-sm-12" [formGroup]="searchForm" novalidate>
       <div class="container-input--wrapper">
         <label for="name">Search enrollee by ID</label>
+        <div>
         <input type="text" formControlName="search" class="form-control" id="search" name="search"
           placeholder="Search enrollee by ID">
+          <app-form-inline-error [errorControlName]="searchForm.controls?.search" [messageConfig]="formErrors?.search"
+          [isSubmitted]="isFormSubmitted"></app-form-inline-error>
+        </div>
       </div>
       <button type="submit" (click)="getEnrolleeDetail()" class="btn btn-primary">Search</button>
       <a href="javascript: void(0);" (click)="loadAllEnrollee()">Clear</a>

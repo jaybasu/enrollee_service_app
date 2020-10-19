@@ -17,6 +17,7 @@ import {
   FormBuilder,
   Validators
 } from '@angular/forms';
+import { formErrors } from 'src/app/constants/form-error.constants';
 
 @Component({
   selector: 'app-enrollee-list',
@@ -27,9 +28,11 @@ export class EnrolleeListComponent implements OnInit, OnDestroy {
   private subscription: Subscription = new Subscription();
   private enrolleeId: string;
   allEnrollee: Enrollee[];
+  formErrors = formErrors;
+  isFormSubmitted = false;
 
   searchForm = this.fb.group({
-    search: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9-]*')]]
+    search: ['', [Validators.required, Validators.pattern('[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}')]]
   });
 
   constructor(
@@ -49,14 +52,14 @@ export class EnrolleeListComponent implements OnInit, OnDestroy {
     this.currentEnrollee = this.getCurrentEnrollee();
   }
   getEnrolleeDetail() {
-    if (this.searchForm.valid) {
+    this.isFormSubmitted = true;
+    if (this.searchForm.controls.search.value && this.searchForm.valid) {
       this.searchClicked = true;
       this.enrolleeId = this.searchForm.controls.search.value;
       this.subscription.add(this.enrolleeService.getEnrolleeDetail(this.enrolleeId)
         .subscribe(enrolleeDetail => {
           this.currentEnrollee = [];
           this.currentEnrollee.push(enrolleeDetail);
-          console.log(this.allEnrollee);
         }));
     }
   }
@@ -77,11 +80,14 @@ export class EnrolleeListComponent implements OnInit, OnDestroy {
   }
   loadAllEnrollee() {
     if (this.searchForm.controls.search.value && this.searchClicked) {
-      this.searchForm.controls.search.setValue('');
+      this.searchForm.controls.search.reset();
       this.getAllEnrollee();
     } else {
-      this.searchForm.controls.search.setValue('');
-      return;
+      this.searchForm.controls.search.setValue(null);
+      // this.searchForm.controls.search.setErrors(null)
+      this.searchForm.controls.search.clearValidators();
+      // this.searchForm.controls.search.updateValueAndValidity();
+      // this.searchForm.controls.search.reset();
     }
 
   }
