@@ -1,20 +1,13 @@
 import {
   Component,
   OnInit,
-  ChangeDetectionStrategy,
-  OnDestroy,
-  Output,
-  Input
+  OnDestroy
 } from '@angular/core';
 import {
   Enrollee
 } from '../../models/enrollee.model';
-// import { Store } from '@ngrx/store';
-// import { AppState } from '../../models/app.state';
-// import * as EmployeeActions from '../../store/employee.actions';
+
 import {
-  from,
-  Observable,
   Subscription
 } from 'rxjs';
 import {
@@ -32,23 +25,9 @@ import {
 })
 export class EnrolleeListComponent implements OnInit, OnDestroy {
   private subscription: Subscription = new Subscription();
-  // allEnrollee$: Observable < any > ;
   private enrolleeId: string;
   allEnrollee: Enrollee[];
 
-
-  // constructor(private store: Store<AppState>) {
-  //   this.allEnrollee$ = this.store.select('applicationState');
-  // }
-
-  // ngOnInit() {
-  //   this.getAllEnrollee();
-  //   this.allEnrollee$.subscribe((state:AppState) => this.allEnrollee = state.enrollee);
-  // }
-
-  // getAllEnrollee() {
-  //   this.store.dispatch(new EmployeeActions.loadEmployeeListAction());
-  // }
   searchForm = this.fb.group({
     search: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9-]*')]]
   });
@@ -71,7 +50,6 @@ export class EnrolleeListComponent implements OnInit, OnDestroy {
   }
   getEnrolleeDetail() {
     if (this.searchForm.valid) {
-      // this.currentEnrollee = [];
       this.searchClicked = true;
       this.enrolleeId = this.searchForm.controls.search.value;
       this.subscription.add(this.enrolleeService.getEnrolleeDetail(this.enrolleeId)

@@ -20,9 +20,6 @@ export class FormInlineErrorComponent {
     pattern: string;
   };
 
-  // constructor() { }
-
-  // ngOnInit() {
-  // }
+  constructor() { }
 
 }

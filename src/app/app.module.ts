@@ -7,12 +7,9 @@ import {
 import {
   HttpClientModule
 } from '@angular/common/http';
-// import { StoreModule } from '@ngrx/store';
 import {
   AppComponent
 } from './app.component';
-// import { EffectsModule } from '@ngrx/effects';
-// import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {
   FormsModule,
   ReactiveFormsModule
@@ -30,15 +27,8 @@ import {
   EnrolleeDetailsModule
 } from './pages/enrollee-detail/enrollee-detail.module';
 import {
-  SearchModule
-} from './pages/search/search.module';
-import {
   EnrolleeListModule
 } from './pages/enrollee-list/enrollee-list.module';
-
-// import { CustomerReducer } from './store/employee.reducer';
-// import { EnrolleeEffects } from './store/employee.effects';
-
 
 @NgModule({
   declarations: [
@@ -53,10 +43,7 @@ import {
     SharedComponentModule,
     EnrolleeListModule,
     EnrolleeDetailsModule,
-    SearchModule,
     LayoutModule
-    // StoreModule.forRoot({applicationState: CustomerReducer}),
-    // EffectsModule.forRoot([EnrolleeEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

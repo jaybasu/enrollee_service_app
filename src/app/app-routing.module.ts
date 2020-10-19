@@ -12,9 +12,6 @@ import {
 import {
   EnrolleeDetailComponent
 } from './pages/enrollee-detail/enrollee-detail.component';
-import {
-  SearchComponent
-} from './pages/search/search.component';
 
 const routes: Routes = [{
     path: '',
@@ -25,21 +22,16 @@ const routes: Routes = [{
     path: 'enrollee-list',
     component: EnrolleeListComponent,
     data: {
-      heading: 'Enrollee List'
+      heading: 'Enrollee List',
+      link: ''
     }
   },
   {
     path: 'enrollee/:id',
     component: EnrolleeDetailComponent,
     data: {
-      heading: 'Edit Enrollee'
-    }
-  },
-  {
-    path: 'search',
-    component: SearchComponent,
-    data: {
-      heading: 'Search Enrollee'
+      heading: 'Edit Enrollee',
+      link: 'home'
     }
   },
   {

@@ -20,6 +20,7 @@ import {
 export class AppComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
   pageHeading: string;
+  homeLink: string;
   constructor(
     private router: Router, private route: ActivatedRoute
   ) {}
@@ -28,6 +29,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.subscription = this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.pageHeading = this.route.snapshot.firstChild.data.heading;
+        this.homeLink = this.route.snapshot.firstChild.data.link;
       }
     });
   }

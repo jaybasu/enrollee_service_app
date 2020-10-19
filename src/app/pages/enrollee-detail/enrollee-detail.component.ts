@@ -18,16 +18,9 @@ import {
 } from '../../models/enrollee.model';
 import {
   FormBuilder,
-  FormGroup,
   Validators
 } from '@angular/forms';
-import {
-  Store
-} from '@ngrx/store';
-// import {
-//   AppState
-// } from '../../models/app.state.ts_';
-// import * as EmployeeActions from '../../store/employee.actions';
+
 import {
   formErrors
 } from '../../constants/form-error.constants';
@@ -63,7 +56,6 @@ export class EnrolleeDetailComponent implements OnInit, OnDestroy {
     private router: Router,
     private enrolleeService: EnrolleeService,
     private fb: FormBuilder,
-    // private store: Store < AppState > ,
     private location: Location
   ) {}
 
@@ -101,7 +93,6 @@ export class EnrolleeDetailComponent implements OnInit, OnDestroy {
     if (this.editForm.valid) {
       this.enrollee.name = this.editForm.controls.name.value;
       this.enrollee.active = this.editForm.controls.status.value;
-      // this.store.dispatch(new EmployeeActions.updateEmployeeAction(this.enrollee));
       this.subscription.add(this.enrolleeService.updateEnrolleeDetail(this.enrollee)
         .subscribe((updatedEnrollee) => {
           return updatedEnrollee;

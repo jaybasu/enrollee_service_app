@@ -2,21 +2,9 @@
   <div>
     <h1>{{heading}}</h1>
   </div>
-  <nav>
-    <ng-container *ngIf="router.url !== '/enrollee-list'; else searchRoute">
-      <a routerLink="/enrollee-list">
-        <i class="fa fa-home"></i>
-      </a>
-    </ng-container>
-    <ng-template #searchRoute>
-      <!-- <a routerLink="/search">
-        <i class="fa fa-search"></i>
-      </a> -->
-      <!-- <form role="form" class="container-search" [formGroup]="searchForm" novalidate>
-          <label for="name" class="visually-hidden">Search enrollee by ID</label>
-          <input type="text" formControlName="search" class="form-control" id="search" name="search" placeholder="Search enrollee by ID">
-          <button type="submit" (click)="getEnrolleeDetail()"><span class="visually-hidden">Search by ID</span><i class="fa fa-search"></i></button>
-      </form> -->
-    </ng-template>
+  <nav *ngIf="homeLink">
+    <a routerLink="/enrollee-list">
+      <i class="fa fa-home"></i>
+    </a>
   </nav>
 </header>
