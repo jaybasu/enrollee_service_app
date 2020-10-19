@@ -21,8 +21,9 @@ import {
   EnrolleeService
 } from '../../services/enrollee.service';
 import {
-  MyPagination
-} from '../../models/pagination.model';
+  FormBuilder,
+  Validators
+} from '@angular/forms';
 
 @Component({
   selector: 'app-enrollee-list',
@@ -30,8 +31,9 @@ import {
   styleUrls: ['./enrollee-list.component.scss']
 })
 export class EnrolleeListComponent implements OnInit, OnDestroy {
-  private subscription: Subscription;
+  private subscription: Subscription = new Subscription();
   // allEnrollee$: Observable < any > ;
+  private enrolleeId: string;
   allEnrollee: Enrollee[];
 
 
@@ -47,11 +49,17 @@ export class EnrolleeListComponent implements OnInit, OnDestroy {
   // getAllEnrollee() {
   //   this.store.dispatch(new EmployeeActions.loadEmployeeListAction());
   // }
+  searchForm = this.fb.group({
+    search: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9-]*')]]
+  });
+
   constructor(
-    private enrolleeService: EnrolleeService) {}
-    currentPageNumber = 1;
-    currentPageSize = 10;
-    currentEnrollee;
+    private enrolleeService: EnrolleeService,
+    private fb: FormBuilder) {}
+  searchClicked = false;
+  currentPageNumber = 1;
+  currentPageSize = 12;
+  currentEnrollee;
 
   ngOnInit() {
     this.getAllEnrollee();
@@ -59,19 +67,45 @@ export class EnrolleeListComponent implements OnInit, OnDestroy {
 
   goToPage(pageNumber) {
     this.currentPageNumber = pageNumber;
-    this.currentEnrollee = this.allEnrollee.slice(
-      (this.currentPageNumber - 1) * this.currentPageSize, (this.currentPageNumber - 1) * this.currentPageSize + this.currentPageSize
-    );
+    this.currentEnrollee = this.getCurrentEnrollee();
+  }
+  getEnrolleeDetail() {
+    if (this.searchForm.valid) {
+      // this.currentEnrollee = [];
+      this.searchClicked = true;
+      this.enrolleeId = this.searchForm.controls.search.value;
+      this.subscription.add(this.enrolleeService.getEnrolleeDetail(this.enrolleeId)
+        .subscribe(enrolleeDetail => {
+          this.currentEnrollee = [];
+          this.currentEnrollee.push(enrolleeDetail);
+          console.log(this.allEnrollee);
+        }));
+    }
   }
 
   getAllEnrollee() {
-    this.subscription = this.enrolleeService.getEnrollee()
+    this.subscription.add(this.enrolleeService.getEnrollee()
       .subscribe(allEnrolleeData => {
+        this.currentEnrollee = [];
         this.allEnrollee = allEnrolleeData;
-        this.currentEnrollee = this.allEnrollee.slice(
-          (this.currentPageNumber - 1) * this.currentPageSize, (this.currentPageNumber - 1) * this.currentPageSize + this.currentPageSize
-        );
-      });
+        this.currentEnrollee = this.getCurrentEnrollee();
+      }));
+  }
+
+  getCurrentEnrollee() {
+    return this.allEnrollee.slice(
+      (this.currentPageNumber - 1) * this.currentPageSize, (this.currentPageNumber - 1) * this.currentPageSize + this.currentPageSize
+    );
+  }
+  loadAllEnrollee() {
+    if (this.searchForm.controls.search.value && this.searchClicked) {
+      this.searchForm.controls.search.setValue('');
+      this.getAllEnrollee();
+    } else {
+      this.searchForm.controls.search.setValue('');
+      return;
+    }
+
   }
   ngOnDestroy(): void {
     this.subscription.unsubscribe();

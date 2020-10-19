@@ -6,7 +6,8 @@ import {
   OnDestroy
 } from '@angular/core';
 import {
-  ActivatedRoute
+  ActivatedRoute,
+  Router
 } from '@angular/router';
 
 import {
@@ -23,11 +24,13 @@ import {
 import {
   Store
 } from '@ngrx/store';
-import {
-  AppState
-} from '../../models/app.state';
+// import {
+//   AppState
+// } from '../../models/app.state.ts_';
 // import * as EmployeeActions from '../../store/employee.actions';
-import { formErrors } from '../../constants/form-error.constants';
+import {
+  formErrors
+} from '../../constants/form-error.constants';
 import {
   Location
 } from '@angular/common';
@@ -57,6 +60,7 @@ export class EnrolleeDetailComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private enrolleeService: EnrolleeService,
     private fb: FormBuilder,
     // private store: Store < AppState > ,
@@ -75,10 +79,17 @@ export class EnrolleeDetailComponent implements OnInit, OnDestroy {
   }
   getEnrolleeDetail() {
     this.subscription.add(this.enrolleeService.getEnrolleeDetail(this.enrolleeId)
-      .subscribe(enrolleeDetail => {
-        this.enrollee = enrolleeDetail;
-        this.setData();
-      }));
+      .subscribe(
+        enrolleeDetail => {
+          if (enrolleeDetail) {
+            this.enrollee = enrolleeDetail;
+            this.setData();
+          } else {
+            alert('Unable to display User Details');
+            this.router.navigate(['./enrollee-list']);
+          }
+        }
+      ));
   }
 
   goBack() {

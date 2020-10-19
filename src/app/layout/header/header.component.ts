@@ -25,35 +25,35 @@ import {
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnDestroy {
+export class HeaderComponent  {
   @Input() heading = '';
 
   private subscription: Subscription = new Subscription();
 
-  private enrolleeId: string;
+  // private enrolleeId: string;
   public enrollee: Enrollee;
 
-  searchForm = this.fb.group({
-    search: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9-]*')]]
-  });
+  // searchForm = this.fb.group({
+  //   search: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9-]*')]]
+  // });
 
   constructor(
-    private enrolleeService: EnrolleeService,
-    private fb: FormBuilder,
-    private router: Router) {}
+    // private enrolleeService: EnrolleeService,
+    // private fb: FormBuilder,
+    public router: Router) {}
 
-  getEnrolleeDetail() {
-    if (this.searchForm.valid) {
-      this.enrolleeId = this.searchForm.controls.search.value;
-      this.enrolleeService.getEnrolleeDetail(this.enrolleeId)
-        .subscribe(enrolleeDetail => {
-          this.enrollee = enrolleeDetail;
-          console.log(this.enrollee);
-        });
-    }
-  }
+  // getEnrolleeDetail() {
+  //   if (this.searchForm.valid) {
+  //     this.enrolleeId = this.searchForm.controls.search.value;
+  //     this.enrolleeService.getEnrolleeDetail(this.enrolleeId)
+  //       .subscribe(enrolleeDetail => {
+  //         this.enrollee = enrolleeDetail;
+  //         console.log(this.enrollee);
+  //       });
+  //   }
+  // }
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
+  // ngOnDestroy(): void {
+  //   this.subscription.unsubscribe();
+  // }
 }

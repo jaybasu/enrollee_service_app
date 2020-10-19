@@ -44,6 +44,13 @@ label {
     content: ':';
   }
 }
+
+ol, ul {
+  display: flex;
+  list-style: none;
+  margin-bottom: 0;
+  padding: 0;
+}
 .visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -52,4 +59,9 @@ label {
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+.hr-1px {
+  height: 1px;
+  margin: 10px 0;
+  background-color: rgba(0, 118, 204, 0.5);
 }

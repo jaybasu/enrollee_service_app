@@ -30,9 +30,12 @@ export class PaginationComponent {
   }
   @Output() goToPage = new EventEmitter < number > ();
   public setPage(pageNumber: number): void {
-    if (pageNumber !== this.currentPage) {
+    if (pageNumber !== this.currentPage && pageNumber > 0 &&  pageNumber <= this.pagesArray.length) {
       this.currentPage = pageNumber;
       this.goToPage.emit(pageNumber);
+      return;
+    }
+    else if (pageNumber < 1 &&  pageNumber > this.pagesArray.length) {
       return;
     }
   }

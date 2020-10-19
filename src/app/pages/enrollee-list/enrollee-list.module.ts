@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { EnrolleeListComponent } from './enrollee-list.component';
 // import { RouterModule } from '@angular/router';
 import { SharedComponentModule } from 'src/app/shared-component/shared-component.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -10,7 +11,8 @@ import { SharedComponentModule } from 'src/app/shared-component/shared-component
   imports: [
     CommonModule,
     // RouterModule,
-    SharedComponentModule
+    SharedComponentModule,
+    ReactiveFormsModule
   ],
   exports: [EnrolleeListComponent]
 })
