@@ -36,7 +36,7 @@ const routes: Routes = [{
   },
   {
     path: '**',
-    redirectTo: '',
+    redirectTo: '/enrollee-list',
     pathMatch: 'full'
   }
 ];

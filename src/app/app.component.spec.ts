@@ -1,27 +1,31 @@
-import { TestBed, async } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { AppComponent } from './app.component';
+
 describe('AppComponent', () => {
-  beforeEach(async(() => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+
+  beforeEach(() => {
+    const activatedRouteStub = () => ({
+      snapshot: { firstChild: { data: { heading: {}, link: {} } } }
+    });
+    const routerStub = () => ({ events: { subscribe: f => f({}) } });
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
-  }));
-  it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
-  it(`should have as title 'Enrollee service application'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('Enrollee service application');
-  }));
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to Enrollee service application!');
-  }));
+      schemas: [NO_ERRORS_SCHEMA],
+      declarations: [AppComponent],
+      providers: [
+        { provide: ActivatedRoute, useFactory: activatedRouteStub },
+        { provide: Router, useFactory: routerStub }
+      ]
+    });
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+  });
+
+  it('can load instance', () => {
+    expect(component).toBeTruthy();
+  });
 });

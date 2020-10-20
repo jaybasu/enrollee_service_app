@@ -1,3 +1,5 @@
+@import '../../../styles/variables';
+
 .text-error {
-    color: red !important;
+    color: $primary-red;
 }

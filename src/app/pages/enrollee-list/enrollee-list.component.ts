@@ -84,10 +84,11 @@ export class EnrolleeListComponent implements OnInit, OnDestroy {
       this.getAllEnrollee();
     } else {
       this.searchForm.controls.search.setValue(null);
-      // this.searchForm.controls.search.setErrors(null)
+      this.searchForm.controls.search.setErrors(null)
       this.searchForm.controls.search.clearValidators();
-      // this.searchForm.controls.search.updateValueAndValidity();
+      
       // this.searchForm.controls.search.reset();
+      // this.searchForm.controls.search.updateValueAndValidity();
     }
 
   }

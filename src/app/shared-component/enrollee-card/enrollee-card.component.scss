@@ -1,6 +1,8 @@
+@import '../../../styles/variables';
+
 .card {
-  margin-bottom: 10px;
-  padding: 5px;
+  margin-bottom: 1.5em;
+  padding: 0.5em;
   display: flex;
   flex-direction: column;
 
@@ -8,22 +10,22 @@
     text-align: right;
 
     & i.fa {
-      font-size: 18px;
-      color: rgba(28, 111, 135, 1.0)
+      font-size: 1.5em;
+      color: rgba(28, 111, 135, 0.9)
     }
   }
 
   .enrollee-status {
-    width: 20px;
-    height: 20px;
+    width: 1.4em;
+    height: 1.4em;
     border-radius: 50%;
     position: absolute;
-    right: 5px;
+    right: 0.5em;
 
     &::after {
       content: '';
-      width: 12px;
-      height: 12px;
+      width: 0.8em;
+      height: 0.8em;
       border-radius: 50%;
       position: absolute;
       left: 50%;
@@ -32,18 +34,18 @@
     }
 
     &__inactive {
-      background-color: rgba(238, 37, 87, 0.25);
+      background-color: rgba($primary-red, 0.25);
 
       &::after {
-        background-color: rgba(238, 37, 87, 0.5);
+        background-color: rgba($primary-red, 0.5);
       }
     }
 
     &__active {
-      background-color: rgba(67, 148, 45, 0.25);
+      background-color: rgba($primary-green, 0.25);
 
       &::after {
-        background-color: rgba(67, 148, 45, 0.5);
+        background-color: rgba($primary-green, 0.5);
       }
     }
   }

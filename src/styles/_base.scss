@@ -9,7 +9,7 @@ html body {
 
 * {
   font-size: 14px;
-  color: rgb(0, 65, 132);
+  color: $primary-dark-blue;
 }
 
 .row {
@@ -19,26 +19,26 @@ html body {
 
 input {
   width: 50%;
-  padding: 5px 5px;
+  padding: 0.5em 0.5em;
   font-weight: 400;
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
-  border-radius: 2px;
+  border-radius: 0.2em;
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-  margin-right: 10px;
+  margin-right: 1em;
 }
 
 input[type="radio"] {
   width: auto;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #ced4da;
-  margin: 0 5px 0 0;
+  border: 0.1em solid #ced4da;
+  margin: 0 0.5em 0 0;
 }
 
 label {
-  margin: 0 10px 0 0;
+  margin: 0 1em 0 0;
 
   &::after {
     content: ':';
@@ -54,14 +54,14 @@ ol, ul {
 .visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
-  height: 1px;
+  height: 0.1em;
+  width: 0.1em;
   overflow: hidden;
   position: absolute;
   white-space: nowrap;
-  width: 1px;
 }
-.hr-1px {
-  height: 1px;
-  margin: 10px 0;
-  background-color: rgba(0, 118, 204, 0.5);
+.hr-thin {
+  height: 0.1em;
+  margin: 1em 0;
+  background-color: rgba($primary-blue, 0.5);
 }

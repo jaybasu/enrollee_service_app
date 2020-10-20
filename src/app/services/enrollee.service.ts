@@ -10,6 +10,7 @@ const httpOptions = {
 };
 
 @Injectable({ providedIn: 'root' })
+
 export class EnrolleeService {
   private baseUrl = 'http://localhost:8080/enrollees';
   constructor(private http: HttpClient) {}

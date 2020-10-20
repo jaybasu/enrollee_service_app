@@ -1,7 +1,8 @@
+@import '../../../styles/variables';
+
 .container-pagination {
   position: absolute;
-  // bottom: 20px;
-  top: calc(100% - 40px);
+  top: calc(100% - 2em);
   left: 50%;
   display: flex;
   transform: translate(-50%, 0);
@@ -11,29 +12,31 @@
 
     li {
       a {
-        color: rgb(0, 65, 132);
+        color: $primary-dark-blue;
         text-decoration: none;
-        border-color: rgb(0, 118, 204);
+        border-color: $primary-blue;
         border-style: solid;
-        border-width: 1px 1px 1px 0;
-        padding: 2px 5px;
+        border-width: 0.1em 0.1em 0.1em 0;
+        padding: 0.25em 0.5em;
 
-        &:hover, &.active {
-          background-color: rgb(0, 118, 204);
-          color: rgb(240, 246, 248);
+        &:hover,
+        &.active {
+          background-color: $primary-blue;
+          color: $light-blue;
         }
+
         &.disable {
           pointer-events: none;
           cursor: default;
-          color: rgba(148, 148, 148, 0.5);
-          border-color: rgba(148, 148, 148, 0.5);;
+          color: rgba($inactive-grey, 0.5);
+          border-color: rgba($inactive-grey, 0.5);
+          ;
         }
       }
 
       &:first-child a {
         border-left-width: 1px;
       }
-      
     }
   }
 }
