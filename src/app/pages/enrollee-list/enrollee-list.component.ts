@@ -17,7 +17,9 @@ import {
   FormBuilder,
   Validators
 } from '@angular/forms';
-import { formErrors } from 'src/app/constants/form-error.constants';
+import {
+  formErrors
+} from 'src/app/constants/form-error.constants';
 
 @Component({
   selector: 'app-enrollee-list',
@@ -38,7 +40,6 @@ export class EnrolleeListComponent implements OnInit, OnDestroy {
   constructor(
     private enrolleeService: EnrolleeService,
     private fb: FormBuilder) {}
-  searchClicked = false;
   currentPageNumber = 1;
   currentPageSize = 12;
   currentEnrollee;
@@ -54,7 +55,6 @@ export class EnrolleeListComponent implements OnInit, OnDestroy {
   getEnrolleeDetail() {
     this.isFormSubmitted = true;
     if (this.searchForm.controls.search.value && this.searchForm.valid) {
-      this.searchClicked = true;
       this.enrolleeId = this.searchForm.controls.search.value;
       this.subscription.add(this.enrolleeService.getEnrolleeDetail(this.enrolleeId)
         .subscribe(enrolleeDetail => {
@@ -79,16 +79,12 @@ export class EnrolleeListComponent implements OnInit, OnDestroy {
     );
   }
   loadAllEnrollee() {
-    if (this.searchForm.controls.search.value && this.searchClicked) {
-      this.searchForm.controls.search.reset();
+    if (this.isFormSubmitted) {
+      this.isFormSubmitted = false;
+      this.searchForm.reset();
       this.getAllEnrollee();
     } else {
-      this.searchForm.controls.search.setValue(null);
-      this.searchForm.controls.search.setErrors(null)
-      this.searchForm.controls.search.clearValidators();
-      
-      // this.searchForm.controls.search.reset();
-      // this.searchForm.controls.search.updateValueAndValidity();
+      return;
     }
 
   }

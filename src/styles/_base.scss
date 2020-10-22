@@ -65,3 +65,9 @@ ol, ul {
   margin: 1em 0;
   background-color: rgba($primary-blue, 0.5);
 }
+.disable {
+  pointer-events: none;
+  cursor: default;
+  color: rgba($inactive-grey, 0.5) !important;
+  border-color: rgba($inactive-grey, 0.5) !important;
+}

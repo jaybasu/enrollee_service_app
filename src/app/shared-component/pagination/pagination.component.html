@@ -1,20 +1,20 @@
+<div class="row">
 <div class="container-pagination">
-  <ng-container *ngIf="pagesArray.length <= 10">
-    <ol>
-      <li>
-        <a href="javascript: void(0);" [ngClass]="{ 'disable': pagesArray && currentPage === 1 }"
-          (click)="setPage(currentPage - 1)">
-          Prev
-        </a>
-      </li>
-      <li *ngFor="let page of pagesArray; let index = index"><a href="javascript: void(0);"
-          [ngClass]="{ 'active': currentPage === index + 1 }" (click)="setPage(index + 1)">{{ index + 1 }}</a></li>
-      <li>
-        <a href="javascript: void(0);" [ngClass]="{ 'disable': pagesArray && currentPage === pagesArray.length }"
-          (click)="setPage(currentPage + 1)">
-          Next
-        </a>
-      </li>
-    </ol>
-  </ng-container>
+  <ol>
+    <li>
+      <a href="javascript: void(0);" [ngClass]="{ 'disable': pagesArray && currentPage === 1 }"
+        (click)="setPage(currentPage - 1)">
+        Prev
+      </a>
+    </li>
+    <li *ngFor="let page of pagesArray; let index = index"><a href="javascript: void(0);"
+        [ngClass]="{ 'active': currentPage === index + 1 }" (click)="setPage(index + 1)">{{ index + 1 }}</a></li>
+    <li>
+      <a href="javascript: void(0);" [ngClass]="{ 'disable': pagesArray && currentPage === pagesArray.length }"
+        (click)="setPage(currentPage + 1)">
+        Next
+      </a>
+    </li>
+  </ol>
+</div>
 </div>

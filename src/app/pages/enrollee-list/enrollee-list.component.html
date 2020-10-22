@@ -15,10 +15,10 @@
         </div>
       </div>
       <button type="submit" (click)="getEnrolleeDetail()" class="btn btn-primary">Search</button>
-      <a href="javascript: void(0);" (click)="loadAllEnrollee()">Clear</a>
+      <a href="javascript: void(0);" [ngClass]="{ 'disable': !isFormSubmitted }" (click)="loadAllEnrollee()">Clear</a>
     </form>
   </div>
-  <div class="hr-1px"></div>
+  <div class="hr-thin"></div>
   <div class="row">
     <div class="col-sm-12">
       <h4>List enrollee</h4>
