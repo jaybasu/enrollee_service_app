@@ -47,8 +47,10 @@ export class EnrolleeDetailComponent implements OnInit, OnDestroy {
   public enrollee: Enrollee;
 
   editForm = this.fb.group({
+    id: [''],
     name: ['', [Validators.required, Validators.pattern('[a-zA-Z- ]*')]],
-    status: ['', Validators.required]
+    status: ['', Validators.required],
+    dateOfBirth: ['']
   });
 
   constructor(
@@ -65,8 +67,10 @@ export class EnrolleeDetailComponent implements OnInit, OnDestroy {
   }
   setData() {
     this.editForm.setValue({
+      id: this.enrollee.id,
       name: this.enrollee.name,
-      status: this.enrollee.active
+      status: this.enrollee.active,
+      dateOfBirth: this.enrollee.dateOfBirth
     });
   }
   getEnrolleeDetail() {

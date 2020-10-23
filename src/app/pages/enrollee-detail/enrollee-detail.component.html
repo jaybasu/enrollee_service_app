@@ -2,12 +2,15 @@
   <div class="col-sm-12">
     <form class="card" role="form" [formGroup]="editForm" novalidate>
       <div class="container-input--wrapper">
+        <label for="name">Enrollee Id</label>
+        <input type="text" formControlName="id" id="id" name="id" disabled>
+      </div>
+      <div class="container-input--wrapper">
         <label for="name">Name*</label>
         <input type="text" formControlName="name" id="name" name="name" placeholder="Enter Name">
         <app-form-inline-error [errorControlName]="editForm.controls?.name" [messageConfig]="formErrors?.name"
           [isSubmitted]="isFormSubmitted"></app-form-inline-error>
       </div>
-      <div class="form-group">
         <fieldset>
           <div class="container-input--wrapper__horizontal">
             <legend>Status:</legend>
@@ -17,7 +20,11 @@
             <label for="yes">Inactive</label>
           </div>
         </fieldset>
-      </div>
+        <div class="container-input--wrapper">
+          <label for="name">Date of birth</label>
+          <input type="text" formControlName="dateOfBirth" id="dateOfBirth" name="dateOfBirth" disabled>
+        </div>
+        <div class="hr-thin"></div>
       <div class="container-buttonGroup--wrapper">
         <button (click)="goBack()" class="btn btn-outline-secondary">Cancel</button>
         <button type="submit" (click)="updateEnrolleeDetail()" class="btn btn-primary">Submit</button>

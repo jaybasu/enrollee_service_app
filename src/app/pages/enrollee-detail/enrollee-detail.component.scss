@@ -1,3 +1,5 @@
+$label-width: 7em;
+
 .container {
   &-input--wrapper {
     margin: 10px 0;
@@ -7,6 +9,8 @@
 
     label {
       font-weight: 600;
+      flex-basis: $label-width;
+      margin: 0;
     }
 
     &__horizontal {
@@ -24,8 +28,8 @@
         line-height: inherit;
         color: inherit;
         white-space: normal;
-        margin-right: 1.5em;
         font-weight: 600;
+        flex-basis: $label-width;
       }
 
       label {
@@ -39,5 +43,5 @@
 
 form.card {
   margin-bottom: 1em;
-  padding: 0.5em;
+  padding: 0.5em 0.5em 1.3em 0.5em;
 }

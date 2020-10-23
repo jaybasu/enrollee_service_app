@@ -18,22 +18,33 @@ html body {
 }
 
 input {
-  width: 50%;
+  width: 40%;
   padding: 0.5em 0.5em;
   font-weight: 400;
-  background-color: #fff;
+  background-color: $grey-xLight;
   background-clip: padding-box;
-  border: 1px solid #ced4da;
+  // border: 1px solid #ced4da;
   border-radius: 0.2em;
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
   margin-right: 1em;
+  border-color: $inactive-grey;
+  border-width: 0 0 0.25em 0;
+  &:focus {
+    outline: none;
+    border-color: $secondary-blue;
+    color: inherit;
+    transition: linear 0.5s;
+  }
+  &:disabled {
+    border-bottom-width: 0;
+  }
 }
 
 input[type="radio"] {
   width: auto;
-  background-color: #fff;
+  background-color: $white;
   background-clip: padding-box;
-  border: 0.1em solid #ced4da;
+  border: 0.1em solid $grey-light;
   margin: 0 0.5em 0 0;
 }
 

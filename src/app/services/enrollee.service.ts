@@ -22,7 +22,6 @@ export class EnrolleeService {
   getEnrollee(): Observable<Enrollee[]> {
     return this.http.get<Enrollee[]>(this.baseUrl)
       .pipe(
-        tap(listOfEnrollyee => { return listOfEnrollyee; }),
         catchError(this.handleError('getEnrollee', []))
       );
   }
@@ -35,7 +34,6 @@ export class EnrolleeService {
     const url = `${this.baseUrl}/${id}`;
     return this.http.get<Enrollee>(url)
       .pipe(
-        tap(enrollee => { return enrollee; }),
         catchError(this.handleError<Enrollee>(`getEnrollee id=${id}`))
       );
   }

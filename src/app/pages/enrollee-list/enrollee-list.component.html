@@ -1,6 +1,4 @@
-<ng-container *ngIf="currentEnrollee && allEnrollee">
-
-  <div class="row">
+  <div class="row" *ngIf="currentEnrollee && allEnrollee">
     <div class="col-sm-12">
       <h4>Search enrollee</h4>
     </div>
@@ -8,18 +6,18 @@
       <div class="container-input--wrapper">
         <label for="name">Search enrollee by ID</label>
         <div>
-        <input type="text" formControlName="search" class="form-control" id="search" name="search"
-          placeholder="Search enrollee by ID">
+          <input type="text" formControlName="search" class="form-control" id="search" name="search"
+            placeholder="Search enrollee by ID">
           <app-form-inline-error [errorControlName]="searchForm.controls?.search" [messageConfig]="formErrors?.search"
-          [isSubmitted]="isFormSubmitted"></app-form-inline-error>
+            [isSubmitted]="isFormSubmitted"></app-form-inline-error>
         </div>
       </div>
       <button type="submit" (click)="getEnrolleeDetail()" class="btn btn-primary">Search</button>
       <a href="javascript: void(0);" [ngClass]="{ 'disable': !isFormSubmitted }" (click)="loadAllEnrollee()">Clear</a>
     </form>
-  </div>
-  <div class="hr-thin"></div>
-  <div class="row">
+    <div class="col-sm-12">
+      <div class="hr-thin"></div>
+    </div>
     <div class="col-sm-12">
       <h4>List enrollee</h4>
     </div>
@@ -32,4 +30,3 @@
       'pageSize': currentPageSize
     }" (goToPage)="goToPage($event)"></app-pagination>
   </div>
-</ng-container>
